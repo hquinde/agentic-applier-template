@@ -2,6 +2,10 @@
 
 A job applier that pulls listings from tracked GitHub repos, tracks what's been applied to vs. not, and separates New York location roles from everywhere else. Built to run with Claude Code driving the browser via the `claude-in-chrome` extension.
 
+> **Note:** The NY/non-NY split is specific to my own job search — I was targeting New York roles. If your goals differ, treat this as a starting point: swap that filter logic in `scripts/fetch.py`/`state.py` (and the fit criteria in `applier/CONTEXT.md`) for whatever split or criteria actually match what you're optimizing for.
+>
+> The architecture takes inspiration from [this paper](https://arxiv.org/abs/2603.16021) and Google Cloud's [write-up on the Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing).
+
 ## Structure
 
 - `scripts/` — Python scripts that fetch listings from tracked GitHub repos and move jobs between tracker files (`fetch.py`, `mark_applied.py`, `mark_unmatched.py`, `mark_unmatched_bulk.py`, `state.py`). No dependencies beyond the standard library.
