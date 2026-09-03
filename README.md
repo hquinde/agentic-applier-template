@@ -2,10 +2,6 @@
 
 A job applier that pulls listings from tracked GitHub repos, tracks what's been applied to vs. not, and separates New York location roles from everywhere else. Built to run with Claude Code driving the browser via the `claude-in-chrome` extension.
 
-> **Note:** The NY/non-NY split is specific to my own job search — I was targeting New York roles. If your goals differ, treat this as a starting point: swap that filter logic in `scripts/fetch.py`/`state.py` (and the fit criteria in `applier/CONTEXT.md`) for whatever split or criteria actually match what you're optimizing for.
->
-> The architecture takes inspiration from [this paper](https://arxiv.org/abs/2603.16021) and Google Cloud's [write-up on the Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing).
-
 ## Structure
 
 - `scripts/` — Python scripts that fetch listings from tracked GitHub repos and move jobs between tracker files (`fetch.py`, `mark_applied.py`, `mark_unmatched.py`, `mark_unmatched_bulk.py`, `state.py`). No dependencies beyond the standard library.
@@ -25,7 +21,19 @@ Each directory has its own `CLAUDE.md` with more detail — read those before ru
 3. Run `python scripts/fetch.py` to pull the first batch of listings into `tracker/`.
 4. Read `applier/CONTEXT.md` for the actual batch-application workflow, then run a batch with Claude Code.
 
+## Make this yours
+
+This template reflects my own job search — treat it as a starting point, not a fixed pipeline:
+
+- **NY/non-NY split** — I was targeting New York roles specifically. Swap that filter logic in `scripts/fetch.py`/`scripts/state.py` and the fit criteria in `applier/CONTEXT.md` for whatever split or criteria actually match what you're optimizing for.
+- **Tracked source repos** — `scripts/fetch.py`'s `REPOS` list (documented in `scripts/CLAUDE.md`) points at the repos I was tracking. Swap in whichever repos actually list the roles you care about.
+
 ## Notes
 
 - The tracked source repos and the NY/non-NY split logic are documented in `scripts/CLAUDE.md`.
 - `applier/CONTEXT.md` documents the fit-review criteria and the browser-automation workflow (single agent, multiple tabs) — read it before running a batch, since it also covers when to stop and ask instead of guessing.
+
+## Inspiration
+
+- **[Interpretable Context Methodology: Folder Structure as Agentic Architecture](https://arxiv.org/abs/2603.16021)** — Van Clief & McDermott's paper on replacing framework-level orchestration with filesystem structure; the model behind this project's `CLAUDE.md`-per-directory, filesystem-as-context design.
+- **[How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing)** (Google Cloud) — the idea of a shared, portable schema for describing data that any system can read/write, echoed here in the tracker's plain-JSON, no-framework state files.
