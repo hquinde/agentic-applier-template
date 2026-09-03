@@ -12,7 +12,7 @@ Each directory has its own `CLAUDE.md` with more detail — read those before ru
 
 ## Setup
 
-1. Clone this repo and open it in Claude Code.
+1. Clone this repo and open it in your IDE of choice. You'll need an agentic coding tool that can drive a browser — this was built and tested with Claude Code (via the `claude-in-chrome` extension), but similar tools (e.g. Claude Cowork) should work too.
 2. Add your own personal context to `applier/` (none of this is included in this template):
    - `resume-context.md` — full-detail record of your background: education, experience, projects, leadership.
    - `questions-context.md` — raw material for essay/short-answer questions: references, motivation themes, talking points, work authorization/location facts.
