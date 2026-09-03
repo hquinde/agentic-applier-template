@@ -16,7 +16,6 @@ Each directory has its own `CLAUDE.md` with more detail — read those before ru
 2. Add your own personal context to `applier/` (none of this is included in this template):
    - `resume-context.md` — full-detail record of your background: education, experience, projects, leadership.
    - `questions-context.md` — raw material for essay/short-answer questions: references, motivation themes, talking points, work authorization/location facts.
-   - `workday-fields.md` — canonical field values for Workday-based applications, so they don't get re-derived every time.
    - Your resume PDF (and optionally a transcript PDF) for uploading to applications and cross-checking factual claims.
 3. Run `python scripts/fetch.py` to pull the first batch of listings into `tracker/`.
 4. Read `applier/CONTEXT.md` for the actual batch-application workflow, then run a batch with Claude Code.

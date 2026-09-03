@@ -6,5 +6,4 @@ tracker/state.lock
 # personal source files you add yourself — never committed
 applier/resume-context.md
 applier/questions-context.md
-applier/workday-fields.md
 applier/*.pdf
